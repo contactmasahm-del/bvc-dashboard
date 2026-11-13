@@ -5,7 +5,19 @@ import pandas as pd
 import requests
 
 DATA_PATH = "data/prix_historique.csv"
+FD_PATH = "data/fondamentaux.csv"
 SCANNER_URL = "https://scanner.tradingview.com/morocco/scan"
+
+# Cours de référence pour les valeurs non encore remontées par le scanner automatique
+FALLBACK_PRICES = {
+    "GTM": 580.0,
+    "CAP": 218.9,
+    "VCN": 332.0,
+    "T2S": 223.9,
+    "CMG": 345.0,
+    "REB": 78.0,
+    "IBC": 32.5,
+}
 
 SECTOR_MAP = {
     "Finance": "Banques & Finance",
@@ -33,7 +45,7 @@ def get_bvc_prices():
         "filter": [],
         "options": {"lang": "fr"},
         "columns": ["name", "description", "close", "change", "volume", "sector"],
-        "range": [0, 250]
+        "range": [0, 300]
     }
     headers = {
         "Content-Type": "application/json",
@@ -79,16 +91,41 @@ def get_bvc_prices():
 def main():
     os.makedirs("data", exist_ok=True)
     df_today = get_bvc_prices()
+    old = pd.read_csv(DATA_PATH) if os.path.exists(DATA_PATH) else pd.DataFrame()
+
+    # Complète avec toutes les sociétés définies dans fondamentaux.csv absentes du flux
+    if os.path.exists(FD_PATH):
+        fd = pd.read_csv(FD_PATH)
+        fd["ticker"] = fd["ticker"].astype(str).str.strip().str.upper()
+        existing_tickers = set(df_today["ticker"].unique())
+
+        extra_rows = []
+        for _, r in fd.iterrows():
+            tk = r["ticker"]
+            if tk not in existing_tickers:
+                last_cours = None
+                if not old.empty and tk in old["ticker"].values:
+                    last_cours = float(old[old["ticker"] == tk].sort_values("date").iloc[-1]["cours"])
+                elif tk in FALLBACK_PRICES:
+                    last_cours = FALLBACK_PRICES[tk]
+
+                if last_cours and last_cours > 0:
+                    extra_rows.append({
+                        "ticker": tk,
+                        "societe_bvc": str(r.get("societe", tk)).strip(),
+                        "secteur_bvc": str(r.get("secteur", "Autre")).strip(),
+                        "cours": last_cours,
+                        "variation_pct": 0.0,
+                        "volume": 0.0
+                    })
+
+        if extra_rows:
+            df_today = pd.concat([df_today, pd.DataFrame(extra_rows)], ignore_index=True)
 
     today_ma = dt.datetime.now(ZoneInfo("Africa/Casablanca")).date().isoformat()
     df_today.insert(0, "date", today_ma)
 
-    if os.path.exists(DATA_PATH):
-        old = pd.read_csv(DATA_PATH)
-        combined = pd.concat([old, df_today], ignore_index=True)
-    else:
-        combined = df_today
-
+    combined = pd.concat([old, df_today], ignore_index=True) if not old.empty else df_today
     combined.drop_duplicates(subset=["date", "ticker"], keep="last", inplace=True)
     combined.sort_values(["date", "ticker"], inplace=True)
     combined.to_csv(DATA_PATH, index=False)
