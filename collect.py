@@ -8,15 +8,16 @@ DATA_PATH = "data/prix_historique.csv"
 FD_PATH = "data/fondamentaux.csv"
 SCANNER_URL = "https://scanner.tradingview.com/morocco/scan"
 
-# Cours de référence pour les valeurs non encore remontées par le scanner automatique
+# Cours de référence pour les introductions récentes ou valeurs suspendues
+# non encore remontées automatiquement par le scanner
 FALLBACK_PRICES = {
     "GTM": 580.0,
     "CAP": 218.9,
-    "VCN": 332.0,
+    "VCN": 315.0,
     "T2S": 223.9,
     "CMG": 345.0,
     "REB": 78.0,
-    "IBC": 32.5,
+    "IBC": 47.01,
 }
 
 SECTOR_MAP = {
@@ -40,11 +41,23 @@ SECTOR_MAP = {
     "Utilities": "Énergie & Services publics",
 }
 
-def get_bvc_prices():
+def map_technical_rating(rec_score: float) -> str:
+    if rec_score >= 0.5:
+        return "Strong Buy"
+    elif rec_score >= 0.1:
+        return "Buy"
+    elif rec_score > -0.1:
+        return "Neutral"
+    elif rec_score > -0.5:
+        return "Sell"
+    else:
+        return "Strong Sell"
+
+def get_bvc_prices() -> pd.DataFrame:
     payload = {
         "filter": [],
         "options": {"lang": "fr"},
-        "columns": ["name", "description", "close", "change", "volume", "sector"],
+        "columns": ["name", "description", "close", "change", "volume", "sector", "Recommend.All"],
         "range": [0, 300]
     }
     headers = {
@@ -67,6 +80,7 @@ def get_bvc_prices():
             cours = float(d[2])
             variation_pct = float(d[3]) if len(d) > 3 and d[3] is not None else 0.0
             volume = float(d[4]) if len(d) > 4 and d[4] is not None else 0.0
+            rec_score = float(d[6]) if len(d) > 6 and d[6] is not None else 0.0
         except (ValueError, TypeError):
             continue
 
@@ -80,12 +94,14 @@ def get_bvc_prices():
                 "secteur_bvc": secteur,
                 "cours": cours,
                 "variation_pct": round(variation_pct, 2),
-                "volume": volume
+                "volume": volume,
+                "recommend_all": round(rec_score, 3),
+                "note_technique": map_technical_rating(rec_score)
             })
 
     df = pd.DataFrame(rows)
     if df.empty:
-        raise RuntimeError("Aucune cotation BVC reçue.")
+        raise RuntimeError("Aucune cotation BVC reçue depuis le scanner.")
     return df
 
 def main():
@@ -93,7 +109,7 @@ def main():
     df_today = get_bvc_prices()
     old = pd.read_csv(DATA_PATH) if os.path.exists(DATA_PATH) else pd.DataFrame()
 
-    # Complète avec toutes les sociétés définies dans fondamentaux.csv absentes du flux
+    # Complète avec toutes les sociétés définies dans fondamentaux.csv absentes du flux (pour atteindre les 81 valeurs)
     if os.path.exists(FD_PATH):
         fd = pd.read_csv(FD_PATH)
         fd["ticker"] = fd["ticker"].astype(str).str.strip().str.upper()
@@ -116,7 +132,9 @@ def main():
                         "secteur_bvc": str(r.get("secteur", "Autre")).strip(),
                         "cours": last_cours,
                         "variation_pct": 0.0,
-                        "volume": 0.0
+                        "volume": 0.0,
+                        "recommend_all": 0.0,
+                        "note_technique": "Neutral"
                     })
 
         if extra_rows:
