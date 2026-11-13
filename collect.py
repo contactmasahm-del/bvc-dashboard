@@ -11,13 +11,11 @@ SCANNER_URL = "https://scanner.tradingview.com/morocco/scan"
 # Cours de référence pour les introductions récentes ou valeurs suspendues
 # non encore remontées automatiquement par le scanner
 FALLBACK_PRICES = {
-    "GTM": 580.0,
-    "CAP": 218.9,
-    "VCN": 315.0,
-    "T2S": 223.9,
-    "CMG": 345.0,
-    "REB": 78.0,
-    "IBC": 47.01,
+    "DIS": 26.25,
+    "DLM": 40.00,
+    "NEJ": 5621.00,
+    "SAM": 241.00,
+    "UMR": 169.00,
 }
 
 SECTOR_MAP = {
