@@ -1,6 +1,6 @@
 date,ticker,cours,volume,societe_bvc,secteur_bvc,variation_pct
 2026-11-13,ADH,39.5,58863.0,Douja Promotion Groupe Addoha SA,Banques & Finance,0.0
-2026-11-13,ADI,381.4,361.0,Alliances Developpement Immobiliere (Ste) SA,Banques & Finance,0.63
+2026-11-13,ADI,375.5,392.0,Alliances Developpement Immobiliere (Ste) SA,Banques & Finance,-0.92
 2026-11-13,AFI,326.1,10.0,Afric Industries SA,Chimie & Industrie,0.0
 2026-11-13,AFM,1250.0,3.0,AFMA SA,Banques & Finance,0.0
 2026-11-13,AGM,6880.0,3.0,Agma SA,Banques & Finance,0.0
@@ -39,15 +39,15 @@ date,ticker,cours,volume,societe_bvc,secteur_bvc,variation_pct
 2026-11-13,IMO,91.9,68.0,Immorente Invest SA,Banques & Finance,0.66
 2026-11-13,INV,116.7,248.0,Involys SA,Logiciels & Services IT,1.26
 2026-11-13,JET,1618.0,1289.0,Jet Contractors SA,BTP & Ingénierie,1.51
-2026-11-13,LBV,3840.0,83.0,Label'Vie SA,Distribution Spécialisée,-0.26
-2026-11-13,LES,285.0,47.0,Lesieur Cristal SA,Agroalimentaire & Biens de consommation,-0.8
+2026-11-13,LBV,3840.0,88.0,Label'Vie SA,Distribution Spécialisée,-0.26
+2026-11-13,LES,285.0,122.0,Lesieur Cristal SA,Agroalimentaire & Biens de consommation,-0.8
 2026-11-13,LHM,1690.0,7.0,Holcim Maroc S.A,Mines & Matériaux,0.6
 2026-11-13,M2M,394.0,5.0,M2M Group SA,Logiciels & Services IT,0.03
 2026-11-13,MAB,909.0,3.0,Maghrebail SA,Banques & Finance,4.24
 2026-11-13,MDP,22.85,495.0,Med Paper SA,Chimie & Industrie,0.31
 2026-11-13,MIC,780.0,1.0,Microdata SA,Logiciels & Services IT,-0.38
 2026-11-13,MLE,350.0,2.0,Maroc Leasing SA,Banques & Finance,3.24
-2026-11-13,MNG,1450.0,384.0,Managem SA,Mines & Matériaux,1.4
+2026-11-13,MNG,1450.0,385.0,Managem SA,Mines & Matériaux,1.4
 2026-11-13,MOX,379.9,102.0,Maghreb Oxygene SA,Chimie & Industrie,-0.28
 2026-11-13,MSA,790.0,222.0,Marsa Maroc SA,Transport & Ports,0.0
 2026-11-13,MUT,233.8,83.0,Mutandis SCA,Agroalimentaire & Biens de consommation,0.99
@@ -56,7 +56,7 @@ date,ticker,cours,volume,societe_bvc,secteur_bvc,variation_pct
 2026-11-13,PRO,1424.0,20.0,Promopharm SA,Pharmacie,-0.56
 2026-11-13,RDS,173.0,3601.0,Residences Dar Saada S.A.,Banques & Finance,-2.04
 2026-11-13,REB,90.0,71.0,Rebab Company SA Limited,Mines & Matériaux,-1.26
-2026-11-13,RIS,318.4,630.0,Risma SA,Loisirs & Hôtellerie,-2.03
+2026-11-13,RIS,323.0,650.0,Risma SA,Loisirs & Hôtellerie,-0.62
 2026-11-13,S2M,490.0,5.0,Societe Maghrebine de Monetique SA,Logiciels & Services IT,-1.59
 2026-11-13,SAH,3175.0,3.0,Sanlam Maroc,Banques & Finance,-0.78
 2026-11-13,SBM,1998.0,1.0,Societe des Boissons du Maroc SA,Agroalimentaire & Biens de consommation,2.46
@@ -65,10 +65,10 @@ date,ticker,cours,volume,societe_bvc,secteur_bvc,variation_pct
 2026-11-13,SMI,5080.0,533.0,Societe Metallurgique d'Imiter SA,Mines & Matériaux,0.99
 2026-11-13,SNA,50.77,1077.0,Stokvis Nord Afrique (Ste) SA,Distribution,-0.06
 2026-11-13,SNP,257.0,65.0,Nationale d'Electrolyse et de Petrochimie (Ste) SA,Chimie & Industrie,2.82
-2026-11-13,SOT,319.0,22.0,Sothema,Pharmacie,-2.65
+2026-11-13,SOT,324.0,25.0,Sothema,Pharmacie,-1.13
 2026-11-13,SRM,440.0,3.0,Societe de Realisations Mecaniques SA,Distribution,-2.0
 2026-11-13,STR,155.0,15.0,STROC Industrie SA,BTP & Ingénierie,-4.59
-2026-11-13,T2S,214.0,6968.0,T2S Group Holding,Distribution,-0.93
+2026-11-13,T2S,214.0,7019.0,T2S Group Holding,Distribution,-0.93
 2026-11-13,TGC,652.0,854.0,Travaux Generaux de Construction de Casablanca S.A.,BTP & Ingénierie,0.31
 2026-11-13,TMA,1352.0,12.0,TotalEnergies Marketing Maroc,Distribution Spécialisée,0.0
 2026-11-13,TQM,1750.0,37.0,TAQA Morocco SA,Énergie & Services publics,-1.13
