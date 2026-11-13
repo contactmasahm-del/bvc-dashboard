@@ -5,13 +5,11 @@ import urllib3
 import pandas as pd
 import casased as cas
 
-# Désactive les avertissements SSL éventuels des serveurs marocains
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 DATA_PATH = "data/prix_historique.csv"
 FD_PATH = "data/fondamentaux.csv"
 
-# Correspondance entre les tickers BVC et les noms reconnus par l'API
 ALIASES = {
     "ATW": ["Attijariwafa", "ATW"],
     "BCP": ["BCP"],
@@ -21,7 +19,7 @@ ALIASES = {
     "CFG": ["CFG", "CFG Bank"],
     "IAM": ["IAM", "Maroc Telecom"],
     "TQM": ["TAQA Morocco", "TQM"],
-    "LHM": ["Holcim Maroc", "LafargeHolcim", "LHM"],
+    "LHM": ["LafargeHolcim", "Holcim Maroc", "LHM"],
     "CMA": ["Ciments Maroc", "CMA"],
     "MNG": ["Managem", "MNG"],
     "CMT": ["CMT"],
@@ -53,43 +51,74 @@ ALIASES = {
     "CMG": ["CMGP GROUP", "CMG"],
 }
 
-def fetch_ticker_history(ticker, societe, start_date):
+def extract_ohlcv(df, ticker):
+    if not isinstance(df.index, pd.RangeIndex):
+        df = df.reset_index()
+
+    cols_lower = {str(c).lower().strip(): c for c in df.columns}
+
+    # Détection de la colonne date
+    date_col = next((cols_lower[k] for k in ["date", "index", "jour"] if k in cols_lower), df.columns[0])
+
+    # Détection de la colonne cours
+    price_col = next(
+        (cols_lower[k] for k in ["value", "close", "cours", "price", "dernier"] if k in cols_lower),
+        None
+    )
+    if price_col is None:
+        numeric_cols = [c for c in df.columns if c != date_col and "vol" not in str(c).lower()]
+        if not numeric_cols:
+            return pd.DataFrame()
+        price_col = numeric_cols[0]
+
+    # Détection de la colonne volume
+    vol_col = next(
+        (cols_lower[k] for k in ["volume", "quantite", "quantité", "qte"] if k in cols_lower),
+        None
+    )
+
+    out = pd.DataFrame()
+    out["date"] = pd.to_datetime(df[date_col], errors="coerce").dt.strftime("%Y-%m-%d")
+    out["ticker"] = ticker
+    out["cours"] = pd.to_numeric(df[price_col], errors="coerce")
+    out["volume"] = pd.to_numeric(df[vol_col], errors="coerce").fillna(0) if vol_col else 0.0
+
+    out = out.dropna(subset=["date", "cours"])
+    out = out[out["cours"] > 0]
+    return out
+
+def fetch_ticker_history(ticker, societe, start_dt, end_dt):
     candidates = ALIASES.get(ticker, []) + [ticker, societe]
-    # Supprime les doublons tout en gardant l'ordre
     candidates = list(dict.fromkeys([c for c in candidates if pd.notna(c)]))
 
     for name in candidates:
-        try:
-            df = cas.get_history(name, start=start_date)
-            if df is not None and not df.empty:
-                df = df.reset_index()
-                date_col = df.columns[0]
-                out = pd.DataFrame()
-                out["date"] = pd.to_datetime(df[date_col]).dt.strftime("%Y-%m-%d")
-                out["ticker"] = ticker
-                out["cours"] = pd.to_numeric(df["Value"], errors="coerce")
-                out["volume"] = pd.to_numeric(df.get("Volume", 0), errors="coerce").fillna(0)
-                out = out.dropna(subset=["cours"])
-                out = out[out["cours"] > 0]
-                if not out.empty:
-                    return out
-        except Exception:
-            continue
+        for s_arg, e_arg in [
+            (start_dt, end_dt),
+            (start_dt.strftime("%Y-%m-%d"), end_dt.strftime("%Y-%m-%d")),
+        ]:
+            try:
+                df = cas.get_history(name, start=s_arg, end=e_arg)
+                if df is not None and not df.empty:
+                    out = extract_ohlcv(df, ticker)
+                    if not out.empty:
+                        return out
+            except Exception:
+                continue
     return pd.DataFrame()
 
 def main():
     os.makedirs("data", exist_ok=True)
     fd = pd.read_csv(FD_PATH)
 
-    # Si aucun historique n'existe encore, on récupère les 180 derniers jours ; sinon les 10 derniers jours
     lookback_days = 10 if os.path.exists(DATA_PATH) else 180
-    start_date = (dt.date.today() - dt.timedelta(days=lookback_days)).isoformat()
+    end_dt = dt.datetime.now()
+    start_dt = end_dt - dt.timedelta(days=lookback_days)
 
     frames = []
     for _, row in fd.iterrows():
         ticker = str(row["ticker"]).strip().upper()
         societe = str(row["societe"]).strip()
-        df_t = fetch_ticker_history(ticker, societe, start_date)
+        df_t = fetch_ticker_history(ticker, societe, start_dt, end_dt)
         if not df_t.empty:
             print(f"[OK] {ticker} ({societe}) : {len(df_t)} séances récupérées")
             frames.append(df_t)
