@@ -395,3 +395,82 @@ date,ticker,cours,volume,societe_bvc,secteur_bvc,variation_pct,recommend_all,not
 2026-11-19,VCN,314.0,2781.0,Vicenne,Distribution,1.45,0.336,Buy
 2026-11-19,WAA,5206.0,280.0,Wafa Assurance SA,Banques & Finance,-4.48,-0.2,Sell
 2026-11-19,ZDJ,265.0,17.0,Zellidja (Ste) SA,Mines & Matériaux,-1.49,0.288,Buy
+2026-11-20,ADH,38.5,174858.0,Douja Promotion Groupe Addoha SA,Banques & Finance,1.32,0.242,Buy
+2026-11-20,ADI,357.9,7765.0,Alliances Developpement Immobiliere (Ste) SA,Banques & Finance,-1.13,-0.558,Strong Sell
+2026-11-20,AFI,326.05,108.0,Afric Industries SA,Chimie & Industrie,-0.29,-0.376,Sell
+2026-11-20,AFM,1270.0,3.0,AFMA SA,Banques & Finance,1.6,0.536,Strong Buy
+2026-11-20,AKT,1099.0,9912.0,Akdital,Santé,-0.09,0.042,Neutral
+2026-11-20,ALM,1888.0,11.0,Aluminium du Maroc,Équipements & Industrie,0.0,0.109,Buy
+2026-11-20,ARD,430.0,742.0,Aradei Capital SA,Services aux entreprises,0.7,0.291,Buy
+2026-11-20,ATH,58.9,4309.0,Auto Hall SA,Distribution Spécialisée,-0.17,-0.445,Sell
+2026-11-20,ATL,116.0,704.0,AtlantaSanad,Banques & Finance,0.0,-0.379,Sell
+2026-11-20,ATW,678.5,42679.0,Attijariwafa Bank SA,Banques & Finance,1.12,0.045,Neutral
+2026-11-20,BCI,542.0,74.0,Banque Marocaine pour le Commerce et l'Industrie,Banques & Finance,-3.2,-0.603,Strong Sell
+2026-11-20,BCP,253.0,30758.0,Banque Centrale Populaire SA,Banques & Finance,0.0,0.4,Buy
+2026-11-20,BOA,192.0,54583.0,Bank of Africa SA,Banques & Finance,-1.39,0.179,Buy
+2026-11-20,CAP,213.0,953.0,Cash plus S.A,Services aux entreprises,0.0,-0.309,Sell
+2026-11-20,CDM,940.0,5110.0,Credit du Maroc (Ste) SA,Banques & Finance,0.0,-0.045,Neutral
+2026-11-20,CFG,204.0,2055.0,CFG Bank SA Class A,Banques & Finance,1.49,0.333,Buy
+2026-11-20,CIH,317.9,6101.0,Credit Immobilier et Hotelier SA,Banques & Finance,0.28,0.245,Buy
+2026-11-20,CMA,1495.0,1080.0,Ciments du Maroc SA,Mines & Matériaux,2.05,0.291,Buy
+2026-11-20,CMG,271.0,4071.0,CMGP GROUP,Équipements & Industrie,-1.28,-0.267,Sell
+2026-11-20,CMT,3290.0,404.0,Compagnie Miniere de Touissit SA,Mines & Matériaux,-1.79,-0.558,Strong Sell
+2026-11-20,COL,74.0,116.0,Colorado SA,Chimie & Industrie,1.7,-0.379,Sell
+2026-11-20,CRS,19.15,3529.0,Cartier Saada SA,Agroalimentaire & Biens de consommation,0.0,-0.379,Sell
+2026-11-20,CSR,180.0,19027.0,COSUMAR SA,Chimie & Industrie,1.69,0.2,Buy
+2026-11-20,CTM,785.0,3.0,Compagnie de Transport au Maroc SA,Transport & Ports,-0.57,-0.33,Sell
+2026-11-20,DHO,47.65,18902.0,Delta Holding SA,BTP & Ingénierie,0.11,-0.267,Sell
+2026-11-20,DIS,26.25,0.0,Diac Salaf,Services Financiers,0.0,0.0,Neutral
+2026-11-20,DLM,40.0,0.0,Delattre Levivier Maroc,BTP & Ingénierie,0.0,0.0,Neutral
+2026-11-20,DWY,752.9,10.0,Disway SA,Distribution,-0.28,0.042,Neutral
+2026-11-20,DYT,340.0,7727.0,Disty Technologies SA,Distribution,-2.02,-0.558,Strong Sell
+2026-11-20,EQD,1450.0,80.0,Societe d'Equipement Domestique et Menager SA,Banques & Finance,3.57,0.179,Buy
+2026-11-20,FBR,309.5,305.0,Fenie Brossette (Ste) SA,Distribution,-2.37,-0.648,Strong Sell
+2026-11-20,GAZ,3600.0,722.0,Afriquia Gaz,Distribution,2.83,0.133,Buy
+2026-11-20,GTM,600.0,12852.0,Societe Generale des Travaux du Maroc,BTP & Ingénierie,0.0,-0.045,Neutral
+2026-11-20,HPS,533.5,4115.0,Hightech Payment Systems SA,Logiciels & Services IT,1.62,-0.309,Sell
+2026-11-20,IAM,89.5,155122.0,Maroc Telecom SA,Télécoms,0.54,-0.091,Neutral
+2026-11-20,IBC,47.2,644.0,IBMaroc.com,Logiciels & Services IT,0.25,-0.558,Strong Sell
+2026-11-20,IMO,91.5,1831.0,Immorente Invest SA,Banques & Finance,0.88,0.445,Buy
+2026-11-20,INV,113.0,140.0,Involys SA,Logiciels & Services IT,-0.88,-0.309,Sell
+2026-11-20,JET,1510.0,10139.0,Jet Contractors SA,BTP & Ingénierie,-3.14,-0.358,Sell
+2026-11-20,LBV,3700.0,717.0,Label'Vie SA,Distribution Spécialisée,-2.63,-0.603,Strong Sell
+2026-11-20,LES,270.0,120.0,Lesieur Cristal SA,Agroalimentaire & Biens de consommation,-3.57,-0.603,Strong Sell
+2026-11-20,LHM,1690.0,5717.0,Holcim Maroc S.A,Mines & Matériaux,0.0,0.267,Buy
+2026-11-20,M2M,390.0,24.0,M2M Group SA,Logiciels & Services IT,-1.02,-0.021,Neutral
+2026-11-20,MAB,871.1,2.0,Maghrebail SA,Banques & Finance,0.71,-0.376,Sell
+2026-11-20,MDP,21.69,840.0,Med Paper SA,Chimie & Industrie,-1.63,-0.512,Strong Sell
+2026-11-20,MIC,780.0,51.0,Microdata SA,Logiciels & Services IT,0.26,0.491,Buy
+2026-11-20,MLE,368.0,6.0,Maroc Leasing SA,Banques & Finance,5.14,0.424,Buy
+2026-11-20,MNG,1200.0,37718.0,Managem SA,Mines & Matériaux,-5.51,-0.648,Strong Sell
+2026-11-20,MOX,370.0,10.0,Maghreb Oxygene SA,Chimie & Industrie,0.0,-0.603,Strong Sell
+2026-11-20,MSA,785.0,58174.0,Marsa Maroc SA,Transport & Ports,1.67,0.021,Neutral
+2026-11-20,MUT,228.5,1130.0,Mutandis SCA,Agroalimentaire & Biens de consommation,0.22,0.158,Buy
+2026-11-20,NEJ,5621.0,0.0,Auto Nejma,Distribution Spécialisée,0.0,0.0,Neutral
+2026-11-20,NKL,46.04,844.0,Ennakl,Distribution Spécialisée,-2.04,-0.445,Sell
+2026-11-20,NRJ,205.0,183566.0,Jet Energy,BTP & Ingénierie,2.5,0.0,Neutral
+2026-11-20,OUL,1130.0,14.0,Les Eaux Minerales d'Oulmes SA,Agroalimentaire & Biens de consommation,0.0,-0.558,Strong Sell
+2026-11-20,PRO,1424.0,20.0,Promopharm SA,Pharmacie,-0.56,0.445,Buy
+2026-11-20,RDS,170.95,6282.0,Residences Dar Saada S.A.,Banques & Finance,-0.06,-0.024,Neutral
+2026-11-20,REB,86.0,50.0,Rebab Company SA Limited,Mines & Matériaux,-4.44,-0.603,Strong Sell
+2026-11-20,RIS,315.0,2843.0,Risma SA,Loisirs & Hôtellerie,0.32,0.179,Buy
+2026-11-20,S2M,461.0,384.0,Societe Maghrebine de Monetique SA,Logiciels & Services IT,-3.96,-0.558,Strong Sell
+2026-11-20,SAH,3175.0,3.0,Sanlam Maroc,Banques & Finance,-0.78,0.355,Buy
+2026-11-20,SAM,241.0,0.0,Samir,Énergie & Pétrole,0.0,0.0,Neutral
+2026-11-20,SBM,1945.0,80.0,Societe des Boissons du Maroc SA,Agroalimentaire & Biens de consommation,0.0,-0.536,Strong Sell
+2026-11-20,SID,1770.0,410.0,SONASID SA,Mines & Matériaux,-1.12,0.067,Neutral
+2026-11-20,SLF,416.0,251.0,Salafin SA,Banques & Finance,0.0,-0.376,Sell
+2026-11-20,SMI,4300.0,998.0,Societe Metallurgique d'Imiter SA,Mines & Matériaux,-6.52,-0.603,Strong Sell
+2026-11-20,SNA,47.0,5425.0,Stokvis Nord Afrique (Ste) SA,Distribution,-1.16,-0.467,Sell
+2026-11-20,SNP,244.0,643.0,Nationale d'Electrolyse et de Petrochimie (Ste) SA,Chimie & Industrie,-3.16,-0.558,Strong Sell
+2026-11-20,SOT,315.0,5574.0,Sothema,Pharmacie,-1.25,-0.333,Sell
+2026-11-20,SRM,438.0,12.0,Societe de Realisations Mecaniques SA,Distribution,-0.45,-0.512,Strong Sell
+2026-11-20,STR,154.8,141.0,STROC Industrie SA,BTP & Ingénierie,2.48,-0.088,Neutral
+2026-11-20,T2S,208.0,6180.0,T2S Group Holding,Distribution,0.43,-0.455,Sell
+2026-11-20,TGC,635.0,8741.0,Travaux Generaux de Construction de Casablanca S.A.,BTP & Ingénierie,-0.84,-0.112,Sell
+2026-11-20,TMA,1337.0,3585.0,TotalEnergies Marketing Maroc,Distribution Spécialisée,-1.33,-0.424,Sell
+2026-11-20,TQM,1650.0,906.0,TAQA Morocco SA,Énergie & Services publics,-1.2,-0.558,Strong Sell
+2026-11-20,UMR,179.0,10.0,Unimer SA,Agroalimentaire & Biens de consommation,0.0,0.4,Buy
+2026-11-20,VCN,314.95,31448.0,Vicenne,Distribution,0.3,0.224,Buy
+2026-11-20,WAA,5500.0,150.0,Wafa Assurance SA,Banques & Finance,5.65,0.558,Strong Buy
+2026-11-20,ZDJ,241.0,2.0,Zellidja (Ste) SA,Mines & Matériaux,-9.06,-0.333,Sell
